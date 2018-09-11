@@ -1,0 +1,7 @@
+<% if @product.errors.empty?%>
+  $('table tbody tr#<%= @product.id %>').replaceWith('<%= j  render "row", product: @product %>');
+  $('#product-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @product.error.full_messages[0] %>');
+<% end %>

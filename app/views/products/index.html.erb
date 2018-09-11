@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary show-btn">Show alert</button>
+<!-- <button type="button" class="btn btn-primary show-btn">Show alert</button>
 
 <%= link_to "Show alert (remote true)", alert_js_path, remote: true, class: 'btn btn-primary' %>
 
@@ -7,4 +7,37 @@
   //   alert("This is a test");
   // });
   new ProductsView();
-</script>
+</script> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h1>Products</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1 text-right">
+      <%= link_to "Nuevo Producto", new_product_path, remote: true, class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+            <%= render "row", product: product %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
