@@ -10,8 +10,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       post invite_friend_url, params: { email: 'friend@example.com' }
     end
     invite_email = ActionMailer::Base.deliveries.last
-    
-    assert_equal "You are being invited by me@example.com", invite_email.subject
+
+    assert_equal "You are being invited by pumo@example", invite_email.subject
     assert_equal 'friend@example.com', invite_email.to[0]
     # assert_match(/Hola friend@example.com/, invite_email.body.to_s)
   end
